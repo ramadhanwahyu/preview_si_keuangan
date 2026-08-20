@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kas Operasional - Keuangan Pesantren</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-100 font-sans text-slate-800">
+
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-emerald-900 text-slate-100 flex flex-col justify-between hidden md:flex">
+            <div>
+                <!-- Logo & Brand -->
+                <div class="p-5 border-b border-emerald-800 flex items-center space-x-3">
+                    <div class="bg-emerald-500 p-2 rounded-lg text-white">
+                        <i class="fa-solid me-1 fa-mosque text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-lg leading-tight">SiKeu Pesantren</h1>
+                        <span class="text-xs text-emerald-300">Sistem Keuangan Santri</span>
+                    </div>
+                </div>
+
+                <!-- Nav Menu -->
+                <nav class="p-4 space-y-1 text-sm font-medium">
+                    <a href="/" class="flex items-center space-x-3 px-4 py-3 bg-emerald-800 text-white rounded-lg">
+                        <i class="fa-solid fa-chart-line w-5"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="/tabungan-jajan.html" class="flex items-center space-x-3 px-4 py-3 text-emerald-200 hover:bg-emerald-800 hover:text-white rounded-lg transition">
+                        <i class="fa-solid fa-wallet w-5"></i>
+                        <span>Tabungan Jajan Santri</span>
+                    </a>
+                    <a href="/pembayaran-spp.html" class="flex items-center space-x-3 px-4 py-3 text-emerald-200 hover:bg-emerald-800 hover:text-white rounded-lg transition">
+                        <i class="fa-solid fa-file-invoice-dollar w-5"></i>
+                        <span>Pembayaran SPP</span>
+                    </a>
+                    <a href="/kas-operasional.html" class="flex items-center space-x-3 px-4 py-3 text-emerald-200 hover:bg-emerald-800 hover:text-white rounded-lg transition">
+                        <i class="fa-solid fa-money-bill-transfer w-5"></i>
+                        <span>Kas Operasional</span>
+                    </a>
+                    <a href="/data-santri.html" class="flex items-center space-x-3 px-4 py-3 text-emerald-200 hover:bg-emerald-800 hover:text-white rounded-lg transition">
+                        <i class="fa-solid fa-user-graduate w-5"></i>
+                        <span>Data Santri</span>
+                    </a>
+                    <a href="/laporan-keuangan.html" class="flex items-center space-x-3 px-4 py-3 text-emerald-200 hover:bg-emerald-800 hover:text-white rounded-lg transition">
+                        <i class="fa-solid fa-print w-5"></i>
+                        <span>Laporan Keuangan</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Profile & Logout -->
+            <div class="p-4 border-t border-emerald-800">
+                <div class="flex items-center space-x-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-700 flex items-center justify-center font-bold text-white">
+                        U
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold">Ustadz Ahmad</p>
+                        <p class="text-xs text-emerald-300">Bendahara Utama</p>
+                    </div>
+                </div>
+                <button class="w-full text-left px-4 py-2 text-xs font-semibold text-red-300 hover:bg-emerald-800 rounded-lg flex items-center space-x-2 transition">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Keluar / Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col">
+
+            <!-- Top Header Navbar -->
+            <header class="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">Kas Operasional Pesantren</h2>
+                    <p class="text-xs text-slate-500">Pencatatan seluruh pemasukan umum dan pengeluaran beban operasional</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button onclick="document.getElementById('modalKasOperasional').classList.remove('hidden')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow-sm transition flex items-center space-x-2">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Input Transaksi Kas</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <div class="p-6 space-y-6 overflow-y-auto">
+
+                <!-- 1. Ringkasan Arus Kas -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                        <div class="p-3 bg-emerald-100 text-emerald-600 rounded-lg">
+                            <i class="fa-solid fa-building-columns text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-slate-500">Saldo Kas Operasional</p>
+                            <h3 class="text-lg font-bold text-slate-800">Rp 64.250.000</h3>
+                            <span class="text-[10px] text-emerald-600 font-medium">Siap digunakan</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                        <div class="p-3 bg-blue-100 text-blue-600 rounded-lg">
+                            <i class="fa-solid fa-circle-arrow-down text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-slate-500">Pemasukan (Bulan Ini)</p>
+                            <h3 class="text-lg font-bold text-slate-800">Rp 52.000.000</h3>
+                            <span class="text-[10px] text-blue-600 font-medium">SPP, Donasi & Bantuan</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                        <div class="p-3 bg-rose-100 text-rose-600 rounded-lg">
+                            <i class="fa-solid fa-circle-arrow-up text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-slate-500">Pengeluaran (Bulan Ini)</p>
+                            <h3 class="text-lg font-bold text-slate-800">Rp 28.350.000</h3>
+                            <span class="text-[10px] text-rose-600 font-medium">Gaji, Dapur & Listrik</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 2. Section Tabel Transaksi Kas -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    
+                    <!-- Filter Toolbar -->
+                    <div class="p-5 border-b border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                            <!-- Cari Transaksi -->
+                            <div class="relative w-full md:w-60">
+                                <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
+                                <input type="text" placeholder="Cari uraian / no. kuintansi..." class="w-full pl-8 pr-3 py-2 bg-slate-50 border border-slate-300 text-xs rounded-lg focus:ring-emerald-500 focus:border-emerald-500">
+                            </div>
+                            <!-- Filter Jenis Kas -->
+                            <select class="bg-slate-50 border border-slate-300 text-xs rounded-lg p-2">
+                                <option value="">Semua Jenis (Pemasukan & Pengeluaran)</option>
+                                <option value="pemasukan">Pemasukan (Pemasukan Kas)</option>
+                                <option value="pengeluaran">Pengeluaran (Beban Kas)</option>
+                            </select>
+                            <!-- Filter Kategori -->
+                            <select class="bg-slate-50 border border-slate-300 text-xs rounded-lg p-2">
+                                <option value="">Semua Kategori</option>
+                                <option value="spp">Alokasi SPP</option>
+                                <option value="donasi">Donasi / Infaq Umum</option>
+                                <option value="dapur">Logistik Dapur Santri</option>
+                                <option value="gaji">Gaji Pengajar & Staf</option>
+                                <option value="utility">Listrik, Air & Internet</option>
+                            </select>
+                        </div>
+                        <div class="text-xs text-slate-500">
+                            Menampilkan <span class="font-semibold text-slate-800">4</span> transaksi
+                        </div>
+                    </div>
+
+                    <!-- Tabel Jurnal Kas Operasional -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs text-slate-600">
+                            <thead class="bg-slate-50 text-slate-500 uppercase font-semibold text-[10px]">
+                                <tr>
+                                    <th class="px-5 py-3">Tanggal</th>
+                                    <th class="px-5 py-3">No. Referensi</th>
+                                    <th class="px-5 py-3">Uraian / Keterangan</th>
+                                    <th class="px-5 py-3">Kategori</th>
+                                    <th class="px-5 py-3">Jenis</th>
+                                    <th class="px-5 py-3">Nominal (Rp)</th>
+                                    <th class="px-5 py-3">Petugas</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <!-- Row 1: Pengeluaran Dapur -->
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-5 py-3 text-slate-400">19 Agt 2026</td>
+                                    <td class="px-5 py-3 font-mono text-[11px] text-slate-500">OUT-202608-012</td>
+                                    <td class="px-5 py-3">
+                                        <p class="font-bold text-slate-800">Pembelian Beras & Sembako Dapur Utama</p>
+                                        <p class="text-[10px] text-slate-400">Suplier: Toko Murni Jaya</p>
+                                    </td>
+                                    <td class="px-5 py-3">
+                                        <span class="bg-slate-100 text-slate-700 text-[10px] px-2 py-0.5 rounded font-medium">Logistik Dapur</span>
+                                    </td>
+                                    <td class="px-5 py-3">
+                                        <span class="bg-rose-100 text-rose-800 text-[10px] px-2.5 py-1 rounded-full font-semibold">
+                                            <i class="fa-solid fa-arrow-up text-[8px] mr-1"></i>Pengeluaran
+                                        </span>
+                                    </td>
+                                    <td class="px-5 py-3 font-bold text-rose-600">- Rp 4.500.000</td>
+                                    <td class="px-5 py-3 text-slate-400">Ustadz Ahmad</td>
+                                </tr>
+
+                                <!-- Row 2: Pemasukan Donasi -->
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-5 py-3 text-slate-400">18 Agt 2026</td>
+                                    <td class="px-5 py-3 font-mono text-[11px] text-slate-500">IN-202608-045</td>
+                                    <td class="px-5 py-3">
+                                        <p class="font-bold text-slate-800">Infaq Pengembangan Sarana Masjid</p>
+                                        <p class="text-[10px] text-slate-400">H. Abdullah (Transfer Bank Syariah)</p>
+                                    </td>
+                                    <td class="px-5 py-3">
+                                        <span class="bg-slate-100 text-slate-700 text-[10px] px-2 py-0.5 rounded font-medium">Donasi / Infaq</span>
+                                    </td>
+                                    <td class="px-5 py-3">
+                                        <span class="bg-emerald-100 text-emerald-800 text-[10px] px-2.5 py-1 rounded-full font-semibold">
+                                            <i class="fa-solid fa-arrow-down text-[8px] mr-1"></i>Pemasukan
+                                        </span>
+                                    </td>
+                                    <td class="px-5 py-3 font-bold text-emerald-600">+ Rp 10.000.000</td>
+                                    <td class="px-5 py-3 text-slate-400">Ustadz Ahmad</td>
+                                </tr>
+
+                                <!-- Row 3: Pengeluaran Listrik -->
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-5 py-3 text-slate-400">15 Agt 2026</td>
+                                    <td class="px-5 py-3 font-mono text-[11px] text-slate-500">OUT-202608-009</td>
+                                    <td class="px-5 py-3">
+                                        <p class="font-bold text-slate-800">Pembayaran Token Listrik Asrama Putra & Putri</p>
+                                        <p class="text-[10px] text-slate-400">PLN Tagihan Bulan Agustus</p>
+                                    </td>
+                                    <td class="px-5 py-3">
+                                        <span class="bg-slate-100 text-slate-700 text-[10px] px-2 py-0.5 rounded font-medium">Listrik & Air</span>
+                                    </td>
+                                    <td class="px-5 py-3">
+                                        <span class="bg-rose-100 text-rose-800 text-[10px] px-2.5 py-1 rounded-full font-semibold">
+                                            <i class="fa-solid fa-arrow-up text-[8px] mr-1"></i>Pengeluaran
+                                        </span>
+                                    </td>
+                                    <td class="px-5 py-3 font-bold text-rose-600">- Rp 3.200.000</td>
+                                    <td class="px-5 py-3 text-slate-400">Ustadz Ahmad</td>
+                                </tr>
+
+                                <!-- Row 4: Pemasukan Rekap SPP -->
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-5 py-3 text-slate-400">10 Agt 2026</td>
+                                    <td class="px-5 py-3 font-mono text-[11px] text-slate-500">IN-202608-020</td>
+                                    <td class="px-5 py-3">
+                                        <p class="font-bold text-slate-800">Rekap Pembayaran SPP Mingguan (Pekan I)</p>
+                                        <p class="text-[10px] text-slate-400">Pindahan Kas Modul SPP Santri</p>
+                                    </td>
+                                    <td class="px-5 py-3">
+                                        <span class="bg-slate-100 text-slate-700 text-[10px] px-2 py-0.5 rounded font-medium">Alokasi SPP</span>
+                                    </td>
+                                    <td class="px-5 py-3">
+                                        <span class="bg-emerald-100 text-emerald-800 text-[10px] px-2.5 py-1 rounded-full font-semibold">
+                                            <i class="fa-solid fa-arrow-down text-[8px] mr-1"></i>Pemasukan
+                                        </span>
+                                    </td>
+                                    <td class="px-5 py-3 font-bold text-emerald-600">+ Rp 25.000.000</td>
+                                    <td class="px-5 py-3 text-slate-400">Ustadz Ahmad</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination Dummy -->
+                    <div class="p-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500">
+                        <span>Menampilkan 1-4 dari 4 data</span>
+                        <div class="flex space-x-1">
+                            <button class="px-3 py-1 bg-slate-100 text-slate-400 rounded cursor-not-allowed" disabled>Prev</button>
+                            <button class="px-3 py-1 bg-emerald-600 text-white rounded font-semibold">1</button>
+                            <button class="px-3 py-1 bg-slate-100 text-slate-400 rounded cursor-not-allowed" disabled>Next</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modal Form Transaksi Kas Operasional -->
+    <div id="modalKasOperasional" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl shadow-lg border border-slate-200 w-full max-w-md p-6 space-y-4">
+            
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                <h3 class="font-bold text-slate-800 text-sm flex items-center space-x-2">
+                    <i class="fa-solid fa-money-bill-transfer text-emerald-600"></i>
+                    <span>Input Transaksi Kas Operasional</span>
+                </h3>
+                <button onclick="document.getElementById('modalKasOperasional').classList.add('hidden')" class="text-slate-400 hover:text-slate-600 text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form action="#" method="POST" class="space-y-3" onclick="event.preventDefault();">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Jenis Kas</label>
+                        <select class="w-full bg-slate-50 border border-slate-300 text-xs rounded-lg p-2.5">
+                            <option value="pengeluaran">Pengeluaran (Beban)</option>
+                            <option value="pemasukan">Pemasukan (Penerimaan)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Kategori</label>
+                        <select class="w-full bg-slate-50 border border-slate-300 text-xs rounded-lg p-2.5">
+                            <option value="dapur">Logistik Dapur</option>
+                            <option value="gaji">Gaji Pengajar / Staf</option>
+                            <option value="utility">Listrik & Air</option>
+                            <option value="donasi">Donasi / Infaq</option>
+                            <option value="lainnya">Lain-lain</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Uraian / Keterangan Transaksi</label>
+                    <input type="text" placeholder="Contoh: Belanja beras 50kg untuk dapur santri" class="w-full bg-slate-50 border border-slate-300 text-xs rounded-lg p-2.5">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Nominal (Rp)</label>
+                        <input type="number" placeholder="Contoh: 1500000" class="w-full bg-slate-50 border border-slate-300 text-xs rounded-lg p-2.5">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Tanggal Transaksi</label>
+                        <input type="date" value="2026-08-19" class="w-full bg-slate-50 border border-slate-300 text-xs rounded-lg p-2.5">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Upload Bukti Nota / Kwitansi (Opsional)</label>
+                    <input type="file" class="w-full bg-slate-50 border border-slate-300 text-xs rounded-lg p-2 text-slate-500">
+                </div>
+
+                <div class="pt-3 flex justify-end space-x-2">
+                    <button type="button" onclick="document.getElementById('modalKasOperasional').classList.add('hidden')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-semibold rounded-lg">
+                        Batal
+                    </button>
+                    <button type="button" onclick="document.getElementById('modalKasOperasional').classList.add('hidden')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg shadow-sm">
+                        Simpan Transaksi Kas
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>
